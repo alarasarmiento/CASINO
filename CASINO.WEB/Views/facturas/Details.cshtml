@@ -1,0 +1,108 @@
+﻿@model CASINO.WEB.factura
+
+@{
+    ViewBag.Title = "Details";
+    List<CASINO.WEB.detalle_factura> detalle_factura = ViewBag.detalle_factura;
+}
+
+<h2>Encabezado Factura</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_factura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente_asociado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente_asociado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_factura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_factura)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.numero_factura }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<hr />
+<h2>Detalle de la Factura</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Cod. Detalle
+        </th>
+        <th>
+            Número Factura
+        </th>
+        <th>
+            Cod. Producto
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            SubTotal
+        </th>
+        <th>
+            Fecha Creación
+        </th>
+    </tr>
+
+    @foreach (var item in detalle_factura)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.codigo_detalle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.numero_factura)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.codigo_producto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cantidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.subtotal)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha_creacion)
+    </td>
+</tr>
+    }
+
+</table>
